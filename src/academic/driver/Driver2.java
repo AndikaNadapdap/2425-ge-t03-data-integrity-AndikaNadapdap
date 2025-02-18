@@ -1,9 +1,5 @@
 package academic.driver;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 import academic.model.Course;
 import academic.model.Student;
@@ -16,9 +12,12 @@ import academic.model.Enrollment;
 public class Driver2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Course> courses = new ArrayList<>();
-        List<Student> students = new ArrayList<>();
-        List<Enrollment> enrollments = new ArrayList<>();
+        Course[] courses = new Course[100];
+        Student[] students = new Student[100];
+        Enrollment[] enrollments = new Enrollment[100];
+        int courseCount = 0;
+        int studentCount = 0;
+        int enrollmentCount = 0;
 
         while (true) {
             String input = scanner.nextLine().trim();
@@ -36,7 +35,7 @@ public class Driver2 {
                             String name = parts[2];
                             int credits = Integer.parseInt(parts[3]);
                             String grade = parts[4];
-                            courses.add(new Course(code, name, credits, grade));
+                            courses[courseCount++] = new Course(code, name, credits, grade);
                         }
                         break;
                     case "student-add":
@@ -45,12 +44,9 @@ public class Driver2 {
                             String name = parts[2];
                             String year = parts[3];
                             String major = parts[4];
-                            students.add(new Student(code, name, year, major));
+                            students[studentCount++] = new Student(code, name, year, major);
                         }
-                        Collections.sort(courses, Comparator.comparing(Course::getCode));
-                        Collections.sort(enrollments, Comparator.comparing(Enrollment::getCode));
                         break;
-            
                     case "enrollment-add":
                         if (parts.length == 5) {
                             String courseCode = parts[1];
@@ -58,7 +54,7 @@ public class Driver2 {
                             String year = parts[3];
                             String semester = parts[4];
                             String[] defaultNotes = {"None"};
-                            enrollments.add(new Enrollment(courseCode, studentId, year, semester, defaultNotes));
+                            enrollments[enrollmentCount++] = new Enrollment(courseCode, studentId, year, semester, defaultNotes);
                         }
                         break;
                     default:
@@ -67,15 +63,14 @@ public class Driver2 {
             }
         }
         scanner.close();
-
-        for (Course course : courses) {
-            System.out.println(course);
+        for (int i = courseCount - 1; i >= 0; i--) {
+            System.out.println(courses[i]);
         }
-        for (Student student : students) {
-            System.out.println(student);
+        for (int i = 0; i < studentCount; i++) {
+            System.out.println(students[i]);
         }
-        for (Enrollment enrollment : enrollments) {
-            System.out.println(enrollment);
+        for (int i = 0; i < enrollmentCount; i++) {
+            System.out.println(enrollments[i]);
         }
     }
 }
