@@ -6,8 +6,8 @@ import academic.model.Enrollment;
 import java.util.Scanner;
 
 /**
- * @author 12S23009_Dina Marlina Siagian
- * @author 12S23028_Daniel Situmorang
+ * @author 12S23013 Andika Immanuel Nadapdap
+ * @author 12S23033 Oloan Nainggolan
  */
 public class Driver2 {
     public static void main(String[] _args) {
