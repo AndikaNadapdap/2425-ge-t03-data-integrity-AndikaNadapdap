@@ -67,25 +67,25 @@ public class Driver2 {
                             String semester = parts[4];
                             String Notes = "None";
 
-                            boolean courseExists = false; // flag to check if course exists in the courses array
-                            boolean studentExists = false;//    flag to check if student exists in the students array   
+                            boolean courseExists = false;
+                            boolean studentExists = false;
 
                             for (int i = 0; i < courseCount; i++) {
                                 if (courses[i].getCode().equals(courseCode)) {
-                                    courseExists = true; // set the flag to true if the course exists
+                                    courseExists = true;
                                     break;
                                 }
                             }
 
                             for (int i = 0; i < studentCount; i++) {
                                 if (students[i].getCode().equals(studentId)) {
-                                    studentExists = true; // set the flag to true if the student exists
+                                    studentExists = true;
                                     break;
                                 }
                             }
 
-                            if (!courseExists) { // if the course does not exist, add the course to the invalidEntries
-                                invalidEntries.append("invalid course|").append(courseCode).append("\n"); // fungsi append untuk menambahkan string ke StringBuilder 
+                            if (!courseExists) {
+                                invalidEntries.append("invalid course|").append(courseCode).append("\n");
                             } else if (!studentExists) {
                                 invalidEntries.append("invalid student|").append(studentId).append("\n");
                             } else {
@@ -95,6 +95,10 @@ public class Driver2 {
                             invalidEntries.append("invalid enrollment-add command|").append(line).append("\n");
                         }
                         break;
+
+                    default:
+                        invalidEntries.append("unknown command|").append(command).append("\n");
+                }
             }
         }
 
@@ -116,6 +120,5 @@ public class Driver2 {
             System.out.println(enrollments[i].toString());
 
         }
-    }
     }
 }
