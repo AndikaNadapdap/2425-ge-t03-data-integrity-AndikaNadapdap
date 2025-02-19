@@ -8,10 +8,10 @@ package academic.model;
 public class Course {
     private String code;
     private String name;
-    private int credit;
+    private String credit;
     private String passingGrade;
 
-    public Course(String code, String name, int credit, String passingGrade) {
+    public Course(String code, String name, String credit, String passingGrade) {
         this.code = code;
         this.name = name;
         this.credit = credit;
@@ -26,7 +26,7 @@ public class Course {
         return name;
     }
 
-    public int getCredit() {
+    public String getCredit() {
         return credit;
     }
 

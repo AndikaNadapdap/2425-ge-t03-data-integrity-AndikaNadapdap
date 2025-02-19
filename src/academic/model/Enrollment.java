@@ -8,14 +8,14 @@ public class Enrollment {
     private String nim;
     private String years;
     private String kejadian;
-   
+    private String notes;
 
-    public Enrollment(String code, String nim, String years, String kejadian, String[] hal) {
+    public Enrollment(String code, String nim, String years, String kejadian, String notes) {
         this.code = code;
         this.nim = nim;
         this.years = years;
+        this.notes = notes;
         this.kejadian = kejadian;
-     
     }
 
     public String getCode() {
@@ -30,9 +30,13 @@ public class Enrollment {
         return years;
     }
 
+    public String getNotes() {
+        return notes;
+    }
+
     @Override
     public String toString() {
-        return code + "|" + nim + "|" + years + "|" + kejadian + "|None";
+        return code + "|" + nim + "|" + years + "|" + kejadian + "|" + notes;
     }
 
 }

@@ -33,9 +33,9 @@ public class Driver1 {
                         if (parts.length == 5) {
                             String code = parts[1];
                             String name = parts[2];
-                            int credits = Integer.parseInt(parts[3]);
-                            String grade = parts[4];
-                            courses[courseCount++] = new Course(code, name, credits, grade);
+                            String credits = parts[3];
+                            String passingGrade = parts[4];
+                            courses[courseCount++] = new Course(code, name, credits,passingGrade);
                         }
                         break;
                     case "student-add":
@@ -53,8 +53,8 @@ public class Driver1 {
                             String studentId = parts[2];
                             String year = parts[3];
                             String semester = parts[4];
-                            String[] defaultNotes = {"None"};
-                            enrollments[enrollmentCount++] = new Enrollment(courseCode, studentId, year, semester, defaultNotes);
+                            String notes = "None";
+                            enrollments[enrollmentCount++] = new Enrollment(courseCode, studentId, year, semester, notes);
                         }
                         break;
                 }
