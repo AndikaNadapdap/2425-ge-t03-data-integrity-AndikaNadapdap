@@ -20,7 +20,7 @@ public class Driver1 {
         int enrollmentCount = 0;
 
         while (true) {
-            String input = scanner.nextLine().trim();
+            String input = scanner.nextLine();
             if (input.equals("---")) {
                 break;
             }
@@ -35,7 +35,7 @@ public class Driver1 {
                             String name = parts[2];
                             String credits = parts[3];
                             String passingGrade = parts[4];
-                            courses[courseCount++] = new Course(code, name, credits,passingGrade);
+                            courses[courseCount++] = new Course(code, name, credits,passingGrade); // untuk menambahkan data ke array courses 
                         }
                         break;
                     case "student-add":
