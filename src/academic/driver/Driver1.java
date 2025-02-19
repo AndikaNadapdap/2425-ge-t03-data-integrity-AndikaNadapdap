@@ -71,7 +71,7 @@ public class Driver1 {
         }
         
         
-        for (int i = enrollmentCount - 1; i >= 0; i--) {
+        for (int i = 0; i < enrollmentCount; i++) {
             System.out.println(enrollments[i]);
         }
     }
